@@ -1,6 +1,6 @@
 #!/usr/bin/node
 const request = require('request');
-const SW_URL = 'https://swapi-api.hbtn.io/api';
+const SW_URL = 'https://swapi-api.alx-tools.com/api';
 
 if (process.argv.length > 2) {
   request(`${SW_URL}/films/${process.argv[2]}/`, (err, _, body) => {
