@@ -1,25 +1,32 @@
 #!/usr/bin/node
+// using star wars API
+
 const request = require('request');
-const SW_URL = 'https://swapi-api.alx-tools.com/api';
+const FILMID = process.argv[2];
 
-if (process.argv.length > 2) {
-  request(`${SW_URL}/films/${process.argv[2]}/`, (err, _, body) => {
-    if (err) {
-      console.log(err);
-    }
-    const characters = JSON.parse(body).characters;
-    const names = characters.map(
-      url => new Promise((resolve, reject) => {
-        request(url, (promiseErr, __, body) => {
-          if (promiseErr) {
-            reject(promiseErr);
-          }
-          resolve(JSON.parse(body).name);
-        });
-      }));
+// Request URL
+const URL_BASE = 'https://swapi-api.hbtn.io/api/films';
 
-    Promise.all(names)
-      .then(names => console.log(names.join('\n')))
-      .catch(allErr => console.log(allErr));
+function doRequest (url) {
+  return new Promise(function (resolve, reject) {
+    request(url, function (error, res, body) {
+      if (!error && res.statusCode === 200) {
+        resolve(JSON.parse(body));
+      } else {
+        reject(error);
+      }
+    });
   });
 }
+
+// Usage:
+
+async function main (filmID) {
+  const res = await doRequest(`${URL_BASE}/${filmID}`);
+  for (const e of res.characters) {
+    const pj = await doRequest(e);
+    console.log(pj.name);
+  }
+}
+
+main(FILMID);
