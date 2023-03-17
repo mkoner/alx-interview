@@ -5,6 +5,8 @@
 def rotate_2d_matrix(matrix):
   '''
   Function to rotate a matrix
+  Args:
+    matrix (list[[list]]): a matrix
   '''
   n = len(matrix)
   for i in range(int(n / 2)):
