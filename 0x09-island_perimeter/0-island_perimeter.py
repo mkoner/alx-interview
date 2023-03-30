@@ -12,7 +12,7 @@ def island_perimeter(grid):
     Return:
         the perimeter of the island
     '''
-    if type(grid) != list:
+    if type(grid) != list or not grid:
         return 0
     A = set()
     B = set()
