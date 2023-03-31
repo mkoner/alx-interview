@@ -4,9 +4,6 @@ Island Perimeter
 '''
 
 
-from sqlalchemy import null
-
-
 def island_perimeter(grid):
     '''
     Function  that calculates the perimeter of the island
