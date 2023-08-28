@@ -29,5 +29,5 @@ def makeChange(coins, total):
             total -= coin
             change += 1
         if (total == 0):
-            return change  
+            return change
     return -1
