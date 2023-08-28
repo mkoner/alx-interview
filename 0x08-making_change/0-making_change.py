@@ -7,11 +7,9 @@ def makeChange(coins, total):
     makeChange function
     Given a pile of coins of different values, determine the fewest
     number of coins needed to meet a given amount total
-
     Parameters:
     -coins: list of the values of the coins in your possession
     -total: given amount to be met
-
     Returns:
     fewest number of coins needed to meet total
     -If total is 0 or less, return 0
