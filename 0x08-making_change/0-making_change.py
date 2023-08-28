@@ -18,13 +18,10 @@ def makeChange(coins, total):
     -If total cannot be met by any number of coins you have, 
     return -1
     """
-
     if not coins or coins is None:
         return -1
-    
     if total <= 0:
         return 0
-    
     change = 0
     coins = sorted(coins)[::-1]
     for coin in coins:
@@ -32,6 +29,5 @@ def makeChange(coins, total):
             total -= coin
             change += 1
         if (total == 0):
-            return change
-        
+            return change  
     return -1
